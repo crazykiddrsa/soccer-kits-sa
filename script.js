@@ -9,8 +9,7 @@ const products = [
         category: "international",
         badge: "Popular",
         teamColor: "#004170",
-        image: "https://drive.google.com/uc?id=1BeBaonNm3fk_1rkhG14-S4d-dMEDCNto",
-        logo: "https://upload.wikimedia.org/wikipedia/en/thumb/a/a7/Paris_Saint-Germain_F.C..svg/1200px-Paris_Saint-Germain_F.C..svg.png",
+        <img src="Screenshot_20251219_015119_Bash.jpg" alt="Home kit">
         sizes: ["S", "M", "L", "XL"]
     },
     // ... include all your other products here
