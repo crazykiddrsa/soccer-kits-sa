@@ -1,25 +1,19 @@
-/* Notification animation */
-.notification {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    background: #4caf50;
-    color: white;
-    padding: 12px 20px;
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    z-index: 1000;
-    animation: slideInRight 0.5s, fadeOut 0.5s 2.5s forwards;
-}
+/* Reset & Base */
+* { margin:0; padding:0; box-sizing:border-box; font-family: Arial, sans-serif; }
+body { background:#f2f2f2; color:#333; line-height:1.6; }
+.container { width:90%; max-width:1200px; margin:0 auto; }
 
-@keyframes slideInRight {
-    from { transform: translateX(100%); opacity: 0; }
-    to { transform: translateX(0); opacity: 1; }
-}
+/* Header */
+header { background:#004170; color:#fff; padding:15px 0; position:fixed; width:100%; top:0; z-index:100; }
+header .logo h1 { font-size:1.5rem; }
+nav ul { list-style:none; display:flex; gap:20px; }
+nav a { color:#fff; text-decoration:none; transition:0.3s; }
+nav a:hover, nav a.active { color:#FEBE10; }
+.mobile-menu-btn { display:none; }
 
-@keyframes fadeOut {
-    from { opacity: 1; }
-    to { opacity: 0; }
-}
+/* Hero */
+.hero { padding:150px 0 50px 0; text-align:center; background:#e6f0fa; }
+.hero h2 { font-size:2rem; margin-bottom:15px; }
+.hero-buttons .btn { display:inline-block; margin:10px; padding:10px 20px; border:none; cursor:pointer; border-radius:5px; text-decoration:none; }
+
+/*
