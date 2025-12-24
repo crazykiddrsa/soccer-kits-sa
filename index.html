@@ -9,54 +9,40 @@
     <link rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-    <!-- Your CSS -->
+    <!-- CSS -->
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
     <!-- Background -->
     <div class="soccer-background"></div>
     <div class="soccer-pattern"></div>
-    
+
     <!-- HEADER -->
     <header>
         <div class="container header-content">
-            <!-- Left: Logo + Nav -->
-            <div class="header-left">
-                <div class="logo">
-                    <div class="logo-icon">
-                        <i class="fas fa-futbol"></i>
-                    </div>
-                    <div class="logo-text">
-                        <h1>Soccer kits <span>🔌 SA</span></h1>
-                    </div>
-                </div>
-
-                <nav>
-                    <ul id="navMenu">
-                        <li><a href="#home" class="active"><i class="fas fa-home"></i> Home</a></li>
-                        <li><a href="#products"><i class="fas fa-tshirt"></i> Jerseys</a></li>
-                        <li><a href="#teams"><i class="fas fa-users"></i> Teams</a></li>
-                        <li><a href="#about"><i class="fas fa-info-circle"></i> About</a></li>
-                    </ul>
-                </nav>
+            <div class="logo-text">
+                <h1>Soccer kits <span>🔌 SA</span></h1>
             </div>
-
-            <!-- Right: Cart + Mobile Menu -->
-            <div class="header-right">
-                <a href="#" id="cartBtn" class="cart-icon">
-                    <i class="fas fa-shopping-cart"></i>
-                    <span class="cart-count" id="cartCount">0</span>
-                </a>
-                <button class="mobile-menu-btn" id="mobileMenuBtn">
-                    <i class="fas fa-bars"></i>
+            <nav>
+                <ul id="navMenu">
+                    <li><a href="#home" class="active"><i class="fas fa-home"></i> Home</a></li>
+                    <li><a href="#products"><i class="fas fa-tshirt"></i> Jerseys</a></li>
+                    <li><a href="#teams"><i class="fas fa-users"></i> Teams</a></li>
+                    <li><a href="#about"><i class="fas fa-info-circle"></i> About</a></li>
+                </ul>
+                <!-- Cart Button inside nav for clean header -->
+                <button id="cartBtn" class="cart-button">
+                    <i class="fas fa-shopping-cart"></i> <span id="cartCount">0</span>
                 </button>
-            </div>
+            </nav>
         </div>
     </header>
 
-    <!-- ======= Cart Panel ======= -->
+    <!-- Cart Notification -->
+    <div id="cartNotification" class="cart-notification"></div>
+
+    <!-- Cart Panel -->
     <div id="cartPanel" class="cart-panel">
         <button id="closeCart" class="close-cart">×</button>
         <h3>Your Cart</h3>
@@ -68,9 +54,6 @@
             <button id="checkoutBtn">Checkout</button>
         </div>
     </div>
-
-    <!-- Cart Notification -->
-    <div id="cartNotification" class="cart-notification"></div>
 
     <!-- HERO SECTION -->
     <section class="hero" id="home">
@@ -123,7 +106,7 @@
         </div>
     </footer>
 
-    <!-- Your JS -->
+    <!-- JS -->
     <script src="script.js"></script>
 </body>
-                            </html>
+    </html>
