@@ -1,5 +1,5 @@
 // ===========================
-// Soccer Kits SA - Full Script.js
+// Soccer Kits SA - Script.js
 // ===========================
 document.addEventListener("DOMContentLoaded", () => {
 
@@ -15,15 +15,10 @@ document.addEventListener("DOMContentLoaded", () => {
     const subtotalEl = document.getElementById("subtotal");
     const taxEl = document.getElementById("tax");
     const totalEl = document.getElementById("total");
-    const checkoutBtn = document.getElementById("checkoutBtn");
-    const checkoutModal = document.getElementById("checkoutModal");
-    const confirmationModal = document.getElementById("confirmationModal");
-    const closeModalBtns = document.querySelectorAll(".close-modal");
-    const eftDetails = document.getElementById("eftDetails");
-    const notification = document.getElementById("cartNotification"); // new div for messages
+    const notification = document.getElementById("cartNotification");
 
     // =========================
-    // PRODUCT DATA
+    // PRODUCTS DATA
     // =========================
     const products = [
         {id: 1, name: "PSG Away Jersey", team: "PSG", price: 1199, category: "international", image: "PSG-J2.jpg"},
@@ -32,7 +27,7 @@ document.addEventListener("DOMContentLoaded", () => {
     ];
 
     // =========================
-    // LOAD CART FROM LOCALSTORAGE
+    // CART STORAGE
     // =========================
     let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
@@ -49,11 +44,11 @@ document.addEventListener("DOMContentLoaded", () => {
         if(!notification) return;
         notification.textContent = msg;
         notification.classList.add("show");
-        setTimeout(()=> notification.classList.remove("show"), 2000);
+        setTimeout(() => notification.classList.remove("show"), 2000);
     }
 
     // =========================
-    // RENDER PRODUCTS GRID
+    // RENDER PRODUCTS
     // =========================
     function renderProducts(category = "all") {
         productsGrid.innerHTML = "";
@@ -103,13 +98,10 @@ document.addEventListener("DOMContentLoaded", () => {
     // RENDER CART PANEL
     // =========================
     function renderCart() {
-        if(!cartItemsContainer) return;
         cartItemsContainer.innerHTML = "";
         if(cart.length === 0){
             cartItemsContainer.innerHTML = `<p class="empty-cart">Your cart is empty ⚽</p>`;
-            checkoutBtn.disabled = true;
         } else {
-            checkoutBtn.disabled = false;
             cart.forEach(item => {
                 const div = document.createElement("div");
                 div.className = "cart-item";
@@ -142,7 +134,7 @@ document.addEventListener("DOMContentLoaded", () => {
     renderCart();
 
     // =========================
-    // CART ACTIONS
+    // CART ACTIONS (Increase, Decrease, Remove)
     // =========================
     cartItemsContainer.addEventListener("click", (e)=>{
         const id = parseInt(e.target.dataset.id);
@@ -169,38 +161,6 @@ document.addEventListener("DOMContentLoaded", () => {
             button.classList.add("active");
             renderProducts(button.dataset.category);
         });
-    });
-
-    // =========================
-    // CHECKOUT MODAL
-    // =========================
-    checkoutBtn.addEventListener("click", ()=> checkoutModal.style.display="block");
-    closeModalBtns.forEach(btn => btn.addEventListener("click", ()=> checkoutModal.style.display="none"));
-
-    document.querySelectorAll('input[name="payment"]').forEach(radio=>{
-        radio.addEventListener("change", e=>{
-            eftDetails.style.display = e.target.value==="eft" ? "block" : "none";
-        });
-    });
-
-    const checkoutForm = document.getElementById("checkoutForm");
-    checkoutForm.addEventListener("submit", (e)=>{
-        e.preventDefault();
-        checkoutModal.style.display="none";
-        confirmationModal.style.display="block";
-        document.getElementById("orderTotal").textContent = totalEl.textContent;
-        document.getElementById("paymentMethod").textContent = document.querySelector('input[name="payment"]:checked').nextElementSibling.querySelector("h4").textContent;
-        cart = [];
-        saveCart();
-        renderCart();
-    });
-
-    document.getElementById("continueShopping").addEventListener("click", ()=> confirmationModal.style.display="none");
-    document.getElementById("printReceipt").addEventListener("click", ()=> window.print());
-
-    window.addEventListener("click", (e)=>{
-        if(e.target === checkoutModal) checkoutModal.style.display="none";
-        if(e.target === confirmationModal) confirmationModal.style.display="none";
     });
 
 });
