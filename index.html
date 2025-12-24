@@ -2,17 +2,24 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <title>Soccer kits 🔌 SA | Authentic Soccer Jerseys</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Soccer Kits 🔌 SA | Authentic Soccer Jerseys</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- YOUR CSS FILE -->
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    <!-- Soccer Background Elements -->
+
+    <!-- Background -->
     <div class="soccer-background"></div>
     <div class="soccer-pattern"></div>
-    
-    <!-- Header -->
+
+    <!-- HEADER -->
     <header>
         <div class="container header-content">
             <div class="logo">
@@ -23,11 +30,11 @@
                     <h1>Soccer kits <span>🔌 SA</span></h1>
                 </div>
             </div>
-            
+
             <button class="mobile-menu-btn" id="mobileMenuBtn">
                 <i class="fas fa-bars"></i>
             </button>
-            
+
             <nav>
                 <ul id="navMenu">
                     <li><a href="#home" class="active"><i class="fas fa-home"></i> Home</a></li>
@@ -35,7 +42,7 @@
                     <li><a href="#teams"><i class="fas fa-users"></i> Teams</a></li>
                     <li><a href="#about"><i class="fas fa-info-circle"></i> About</a></li>
                     <li>
-                        <a href="#" class="cart-icon" id="openCart">
+                        <a href="#" id="openCart" class="cart-icon">
                             <i class="fas fa-shopping-cart"></i>
                             <span class="cart-count" id="cartCount">0</span>
                         </a>
@@ -44,12 +51,12 @@
             </nav>
         </div>
     </header>
-    
-    <!-- Hero Section -->
+
+    <!-- HERO -->
     <section class="hero" id="home">
         <div class="container hero-content">
             <h2>Authentic Soccer Jerseys</h2>
-            <p>Get official and replica kits from the world's top clubs. High quality, affordable prices, delivered across South Africa.</p>
+            <p>Official & replica kits delivered across South Africa</p>
             <div class="hero-buttons">
                 <a href="#products" class="btn btn-primary">
                     <i class="fas fa-shopping-bag"></i> Shop Now
@@ -60,98 +67,43 @@
             </div>
         </div>
     </section>
-    
-    <!-- Products Section -->
+
+    <!-- PRODUCTS -->
     <section class="products-section" id="products">
         <div class="container">
             <div class="section-title">
                 <h2>Premium Soccer Kits</h2>
-                <p>Official and replica jerseys from top clubs worldwide</p>
+                <p>International & PSL teams</p>
             </div>
-            
+
             <div class="category-filter">
-                <button class="category-btn active" data-category="all">All Teams</button>
+                <button class="category-btn active" data-category="all">All</button>
                 <button class="category-btn" data-category="international">International</button>
-                <button class="category-btn" data-category="psl">PSL Teams</button>
-                <button class="category-btn" data-category="sale">On Sale</button>
+                <button class="category-btn" data-category="psl">PSL</button>
             </div>
-            
+
             <div class="products-grid" id="productsGrid"></div>
         </div>
     </section>
-    
-    <!-- Teams Section -->
+
+    <!-- TEAMS -->
     <section class="teams-section" id="teams">
         <div class="container">
             <div class="section-title">
                 <h2>Featured Teams</h2>
-                <p>Jerseys from the world's most famous clubs</p>
             </div>
-            
             <div class="teams-grid" id="teamsGrid"></div>
         </div>
     </section>
-    
-    <!-- Footer -->
+
+    <!-- FOOTER -->
     <footer id="about">
         <div class="container">
-            <div class="footer-content">
-                <div class="footer-column">
-                    <h3>Soccer kits 🔌 SA</h3>
-                    <p>Your premier destination for authentic soccer jerseys in South Africa. We bring the passion of the game to your wardrobe with quality kits from top clubs worldwide.</p>
-                    <div class="social-icons">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-whatsapp"></i></a>
-                    </div>
-                </div>
-                
-                <div class="footer-column">
-                    <h3>Quick Links</h3>
-                    <ul>
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#products">Jerseys</a></li>
-                        <li><a href="#teams">Teams</a></li>
-                        <li><a href="#about">About Us</a></li>
-                        <li><a href="#contact">Contact</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-column">
-                    <h3>Contact Info</h3>
-                    <div class="contact-info">
-                        <div class="contact-item">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <span>Soccer City, Johannesburg, SA</span>
-                        </div>
-                        <div class="contact-item">
-                            <i class="fas fa-phone"></i>
-                            <span>+27 11 234 5678</span>
-                        </div>
-                        <div class="contact-item">
-                            <i class="fas fa-envelope"></i>
-                            <span>orders@soccerkits-sa.co.za</span>
-                        </div>
-                        <div class="contact-item">
-                            <i class="fas fa-clock"></i>
-                            <span>Mon-Sat: 9am-6pm, Sun: 10am-4pm</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="copyright">
-                <p>&copy; 2023 Soccer kits 🔌 SA. All rights reserved. | Designed for TrebEdit Mobile</p>
-            </div>
+            <p>&copy; 2025 Soccer kits 🔌 SA</p>
         </div>
     </footer>
 
-    <!-- Cart & Checkout Modals -->
-    <div id="cartModal"></div>
-    <div id="checkoutModal"></div>
-
-    <!-- JS -->
-    <script src="js/script.js"></script>
+    <!-- YOUR JAVASCRIPT FILE -->
+    <script src="script.js"></script>
 </body>
-</html>
+            </html>
