@@ -18,34 +18,41 @@
     <!-- Background -->
     <div class="soccer-background"></div>
     <div class="soccer-pattern"></div>
-
+    
     <!-- HEADER -->
     <header>
         <div class="container header-content">
-            <div class="logo">
-                <div class="logo-icon"><i class="fas fa-futbol"></i></div>
-                <div class="logo-text"><h1>Soccer kits <span>🔌 SA</span></h1></div>
+            <!-- Left: Logo + Nav -->
+            <div class="header-left">
+                <div class="logo">
+                    <div class="logo-icon">
+                        <i class="fas fa-futbol"></i>
+                    </div>
+                    <div class="logo-text">
+                        <h1>Soccer kits <span>🔌 SA</span></h1>
+                    </div>
+                </div>
+
+                <nav>
+                    <ul id="navMenu">
+                        <li><a href="#home" class="active"><i class="fas fa-home"></i> Home</a></li>
+                        <li><a href="#products"><i class="fas fa-tshirt"></i> Jerseys</a></li>
+                        <li><a href="#teams"><i class="fas fa-users"></i> Teams</a></li>
+                        <li><a href="#about"><i class="fas fa-info-circle"></i> About</a></li>
+                    </ul>
+                </nav>
             </div>
 
-            <button class="mobile-menu-btn" id="mobileMenuBtn">
-                <i class="fas fa-bars"></i>
-            </button>
-
-            <nav>
-                <ul id="navMenu">
-                    <li><a href="#home" class="active"><i class="fas fa-home"></i> Home</a></li>
-                    <li><a href="#products"><i class="fas fa-tshirt"></i> Jerseys</a></li>
-                    <li><a href="#teams"><i class="fas fa-users"></i> Teams</a></li>
-                    <li><a href="#about"><i class="fas fa-info-circle"></i> About</a></li>
-                    <li>
-                        <!-- Cart Icon triggers sliding cart panel -->
-                        <a href="#" id="cartBtn" class="cart-icon">
-                            <i class="fas fa-shopping-cart"></i>
-                            <span class="cart-count" id="cartCount">0</span>
-                        </a>
-                    </li>
-                </ul>
-            </nav>
+            <!-- Right: Cart + Mobile Menu -->
+            <div class="header-right">
+                <a href="#" id="cartBtn" class="cart-icon">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count" id="cartCount">0</span>
+                </a>
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
         </div>
     </header>
 
@@ -62,7 +69,10 @@
         </div>
     </div>
 
-    <!-- HERO -->
+    <!-- Cart Notification -->
+    <div id="cartNotification" class="cart-notification"></div>
+
+    <!-- HERO SECTION -->
     <section class="hero" id="home">
         <div class="container hero-content">
             <h2>Authentic Soccer Jerseys</h2>
@@ -78,7 +88,7 @@
         </div>
     </section>
 
-    <!-- PRODUCTS -->
+    <!-- PRODUCTS SECTION -->
     <section class="products-section" id="products">
         <div class="container">
             <div class="section-title">
@@ -86,19 +96,17 @@
                 <p>International & PSL teams</p>
             </div>
 
-            <!-- Category Filter -->
             <div class="category-filter">
                 <button class="category-btn active" data-category="all">All</button>
                 <button class="category-btn" data-category="international">International</button>
                 <button class="category-btn" data-category="psl">PSL</button>
             </div>
 
-            <!-- Products Grid -->
             <div class="products-grid" id="productsGrid"></div>
         </div>
     </section>
 
-    <!-- TEAMS -->
+    <!-- TEAMS SECTION -->
     <section class="teams-section" id="teams">
         <div class="container">
             <div class="section-title">
@@ -115,10 +123,7 @@
         </div>
     </footer>
 
-    <!-- Cart Notification -->
-    <div id="cartNotification" class="cart-notification"></div>
-
     <!-- Your JS -->
     <script src="script.js"></script>
 </body>
-    </html>
+                            </html>
