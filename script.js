@@ -7,6 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // ELEMENTS
     // =========================
     const productsGrid = document.getElementById("productsGrid");
+    const teamsGrid = document.getElementById("teamsGrid");
     const cartCount = document.getElementById("cartCount");
     const cartPanel = document.getElementById("cartPanel");
     const cartBtn = document.getElementById("cartBtn");
@@ -19,16 +20,29 @@ document.addEventListener("DOMContentLoaded", () => {
     const notification = document.getElementById("cartNotification");
 
     // =========================
-    // PRODUCT DATA
+    // PRODUCT DATA (Jerseys)
     // =========================
     const products = [
         {id: 1, name: "PSG Away Jersey", team: "PSG", price: 1199, category: "international", image: "PSG-J2.jpg"},
         {id: 2, name: "Real Madrid Away Jersey", team: "Real Madrid", price: 1249, category: "international", image: "RM-J2.jpg"},
-        {id: 3, name: "Mamelodi Sundowns Home Jersey", team: "Sundowns", price: 899, category: "psl", image: "SD-J.jpg"}
+        {id: 3, name: "Mamelodi Sundowns Home Jersey", team: "Sundowns", price: 899, category: "psl", image: "SD-J.jpg"},
+        {id: 4, name: "Barcelona Away Jersey", team: "Barcelona", price: 1199, category: "international", image: "FCB-J2.jpg"},
+        {id: 5, name: "Kaizer Chiefs Away Jersey", team: "Kaizer Chiefs", price: 999, category: "psl", image: "KC-J2.jpg"},
+        {id: 6, name: "Liverpool Home Jersey", team: "Liverpool", price: 1099, category: "international", image: "LFC-J.jpg"},
+        {id: 7, name: "Orlando Pirates Home Jersey", team: "Orlando Pirates", price: 899, category: "psl", image: "OP-J.jpg"}
     ];
 
     // =========================
-    // LOAD CART FROM LOCALSTORAGE
+    // TEAM LOGOS
+    // =========================
+    const teams = [
+        {name: "Manchester City", logo: "MC-LOGO.jpg"},
+        {name: "Orlando Pirates", logo: "OP-LOGO.jpg"},
+        {name: "Mamelodi Sundowns", logo: "SD-LOGO.jpg"}
+    ];
+
+    // =========================
+    // LOAD CART
     // =========================
     let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
@@ -57,7 +71,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // =========================
-    // RENDER PRODUCTS
+    // RENDER PRODUCTS (Jerseys)
     // =========================
     function renderProducts(category = "all") {
         productsGrid.innerHTML = "";
@@ -81,6 +95,24 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     renderProducts();
+
+    // =========================
+    // RENDER TEAMS (LOGOS)
+    // =========================
+    function renderTeams() {
+        teamsGrid.innerHTML = "";
+        teams.forEach(team => {
+            const div = document.createElement("div");
+            div.className = "team-card";
+            div.innerHTML = `
+                <img src="${team.logo}" alt="${team.name}">
+                <h4>${team.name}</h4>
+            `;
+            teamsGrid.appendChild(div);
+        });
+    }
+
+    renderTeams();
 
     // =========================
     // ADD TO CART
