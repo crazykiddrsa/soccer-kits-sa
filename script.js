@@ -29,7 +29,7 @@ const products = [
         team: "Sundowns",
         price: 899,
         category: "psl",
-        image: "sundowns.jpg"
+        image: "SD-LOGO.jpg"
     }
 ];
 
