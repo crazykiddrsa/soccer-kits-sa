@@ -1,5 +1,5 @@
 // ===========================
-// Soccer Kits SA - Full Script.js with Cart Bounce
+// Soccer Kits SA - Full Script.js
 // ===========================
 document.addEventListener("DOMContentLoaded", () => {
 
@@ -9,18 +9,14 @@ document.addEventListener("DOMContentLoaded", () => {
     const productsGrid = document.getElementById("productsGrid");
     const cartCount = document.getElementById("cartCount");
     const cartPanel = document.getElementById("cartPanel");
-    const openCartBtn = document.getElementById("cartBtn");
+    const cartBtn = document.getElementById("cartBtn");
     const closeCartBtn = document.getElementById("closeCart");
     const cartItemsContainer = document.getElementById("cartItems");
     const subtotalEl = document.getElementById("subtotal");
     const taxEl = document.getElementById("tax");
     const totalEl = document.getElementById("total");
     const checkoutBtn = document.getElementById("checkoutBtn");
-    const checkoutModal = document.getElementById("checkoutModal");
-    const confirmationModal = document.getElementById("confirmationModal");
-    const closeModalBtns = document.querySelectorAll(".close-modal");
-    const eftDetails = document.getElementById("eftDetails");
-    const notification = document.getElementById("cartNotification"); // new div for messages
+    const notification = document.getElementById("cartNotification");
 
     // =========================
     // PRODUCT DATA
@@ -39,7 +35,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // =========================
     // OPEN/CLOSE CART PANEL
     // =========================
-    openCartBtn.addEventListener("click", () => cartPanel.classList.add("active"));
+    cartBtn.addEventListener("click", () => cartPanel.classList.toggle("active"));
     closeCartBtn.addEventListener("click", () => cartPanel.classList.remove("active"));
 
     // =========================
@@ -49,11 +45,19 @@ document.addEventListener("DOMContentLoaded", () => {
         if(!notification) return;
         notification.textContent = msg;
         notification.classList.add("show");
-        setTimeout(()=> notification.classList.remove("show"), 2000);
+        setTimeout(() => notification.classList.remove("show"), 2000);
     }
 
     // =========================
-    // RENDER PRODUCTS GRID
+    // CART ICON BOUNCE
+    // =========================
+    function animateCart() {
+        cartBtn.classList.add("bounce");
+        setTimeout(() => cartBtn.classList.remove("bounce"), 500);
+    }
+
+    // =========================
+    // RENDER PRODUCTS
     // =========================
     function renderProducts(category = "all") {
         productsGrid.innerHTML = "";
@@ -70,7 +74,7 @@ document.addEventListener("DOMContentLoaded", () => {
             card.querySelector("button").addEventListener("click", () => {
                 addToCart(product.id);
                 showNotification(`${product.name} added to cart!`);
-                bounceCartIcon();
+                animateCart();
             });
             productsGrid.appendChild(card);
         });
@@ -104,7 +108,6 @@ document.addEventListener("DOMContentLoaded", () => {
     // RENDER CART PANEL
     // =========================
     function renderCart() {
-        if(!cartItemsContainer) return;
         cartItemsContainer.innerHTML = "";
         if(cart.length === 0){
             cartItemsContainer.innerHTML = `<p class="empty-cart">Your cart is empty ⚽</p>`;
@@ -171,49 +174,4 @@ document.addEventListener("DOMContentLoaded", () => {
             renderProducts(button.dataset.category);
         });
     });
-
-    // =========================
-    // CHECKOUT MODAL
-    // =========================
-    if(checkoutBtn) {
-        checkoutBtn.addEventListener("click", ()=> checkoutModal.style.display="block");
-    }
-    closeModalBtns.forEach(btn => btn.addEventListener("click", ()=> checkoutModal.style.display="none"));
-
-    document.querySelectorAll('input[name="payment"]').forEach(radio=>{
-        radio.addEventListener("change", e=>{
-            eftDetails.style.display = e.target.value==="eft" ? "block" : "none";
-        });
-    });
-
-    const checkoutForm = document.getElementById("checkoutForm");
-    if(checkoutForm) {
-        checkoutForm.addEventListener("submit", (e)=>{
-            e.preventDefault();
-            checkoutModal.style.display="none";
-            confirmationModal.style.display="block";
-            document.getElementById("orderTotal").textContent = totalEl.textContent;
-            document.getElementById("paymentMethod").textContent = document.querySelector('input[name="payment"]:checked').nextElementSibling.querySelector("h4").textContent;
-            cart = [];
-            saveCart();
-            renderCart();
-        });
-    }
-
-    document.getElementById("continueShopping")?.addEventListener("click", ()=> confirmationModal.style.display="none");
-    document.getElementById("printReceipt")?.addEventListener("click", ()=> window.print());
-
-    window.addEventListener("click", (e)=>{
-        if(e.target === checkoutModal) checkoutModal.style.display="none";
-        if(e.target === confirmationModal) confirmationModal.style.display="none";
-    });
-
-    // =========================
-    // CART ICON BOUNCE FUNCTION
-    // =========================
-    function bounceCartIcon() {
-        openCartBtn.classList.add("bounce");
-        setTimeout(()=> openCartBtn.classList.remove("bounce"), 500);
-    }
-
 });
