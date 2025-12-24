@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <title>Soccer Kits 🔌 SA | Authentic Soccer Jerseys</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-    <!-- Your CSS -->
+    
+    <!-- CSS -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -17,18 +17,12 @@
     <div class="soccer-background"></div>
     <div class="soccer-pattern"></div>
 
-    <!-- HEADER -->
+    <!-- Header -->
     <header>
         <div class="container header-content">
             <div class="logo">
-                <div class="logo-icon">
-                    <i class="fas fa-futbol"></i>
-                </div>
-                <div class="logo-text">
-                    <h1>Soccer kits <span>🔌 SA</span></h1>
-                </div>
+                <h1>Soccer Kits <span>🔌 SA</span></h1>
             </div>
-
             <nav>
                 <ul id="navMenu">
                     <li><a href="#home" class="active">Home</a></li>
@@ -36,16 +30,17 @@
                     <li><a href="#teams">Teams</a></li>
                     <li><a href="#about">About</a></li>
                     <li>
-                        <button id="cartBtn" class="cart-button">
-                            <i class="fas fa-shopping-cart"></i> <span id="cartCount">0</span>
-                        </button>
+                        <a href="#" id="cartBtn" class="cart-icon">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span id="cartCount">0</span>
+                        </a>
                     </li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <!-- ======= Cart Panel ======= -->
+    <!-- Cart Panel -->
     <div id="cartPanel" class="cart-panel">
         <button id="closeCart" class="close-cart">×</button>
         <h3>Your Cart</h3>
@@ -61,7 +56,7 @@
     <!-- Cart Notification -->
     <div id="cartNotification" class="cart-notification"></div>
 
-    <!-- HERO SECTION -->
+    <!-- Hero Section -->
     <section class="hero" id="home">
         <div class="container hero-content">
             <h2>Authentic Soccer Jerseys</h2>
@@ -77,46 +72,40 @@
         </div>
     </section>
 
-    <!-- PRODUCTS / JERSEYS SECTION -->
+    <!-- Products Section -->
     <section class="products-section" id="products">
         <div class="container">
             <div class="section-title">
                 <h2>Premium Soccer Kits</h2>
                 <p>International & PSL teams</p>
             </div>
-
             <div class="category-filter">
                 <button class="category-btn active" data-category="all">All</button>
                 <button class="category-btn" data-category="international">International</button>
                 <button class="category-btn" data-category="psl">PSL</button>
             </div>
-
-            <div class="products-grid" id="productsGrid">
-                <!-- JS will render jerseys here -->
-            </div>
+            <div class="products-grid" id="productsGrid"></div>
         </div>
     </section>
 
-    <!-- TEAMS / LOGOS SECTION -->
+    <!-- Teams Section -->
     <section class="teams-section" id="teams">
         <div class="container">
             <div class="section-title">
                 <h2>Featured Teams</h2>
             </div>
-            <div class="teams-grid" id="teamsGrid">
-                <!-- JS will render team logos here -->
-            </div>
+            <div class="teams-grid" id="teamsGrid"></div>
         </div>
     </section>
 
-    <!-- FOOTER -->
+    <!-- Footer -->
     <footer id="about">
         <div class="container">
             <p>&copy; 2025 Soccer Kits 🔌 SA</p>
         </div>
     </footer>
 
-    <!-- Your JS -->
+    <!-- JS -->
     <script src="script.js"></script>
 </body>
-                        </html>
+                                </html>
