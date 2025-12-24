@@ -9,9 +9,9 @@ console.log("script.js loaded");
 const products = [
     {
         id: 1,
-        name: "PSG Home Jersey",
+        name: "PSG Away Jersey",
         team: "PSG",
-        price: 1299,
+        price: 1199,
         category: "international",
         image: "psg.jpg"
     },
@@ -21,7 +21,7 @@ const products = [
         team: "Real Madrid",
         price: 1249,
         category: "international",
-        image: "real-madrid-away-25-26.jpg"
+        image: "RM-J2.jpg"
     },
     {
         id: 3,
@@ -29,7 +29,7 @@ const products = [
         team: "Sundowns",
         price: 899,
         category: "psl",
-        image: "SD-LOGO.jpg"
+        image: "SD-J.jpg"
     }
 ];
 
