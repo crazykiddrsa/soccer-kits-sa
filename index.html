@@ -9,7 +9,7 @@
     <link rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-    <!-- YOUR CSS FILE -->
+    <!-- Your CSS -->
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -18,17 +18,13 @@
     <!-- Background -->
     <div class="soccer-background"></div>
     <div class="soccer-pattern"></div>
-    
+
     <!-- HEADER -->
     <header>
         <div class="container header-content">
             <div class="logo">
-                <div class="logo-icon">
-                    <i class="fas fa-futbol"></i>
-                </div>
-                <div class="logo-text">
-                    <h1>Soccer kits <span>🔌 SA</span></h1>
-                </div>
+                <div class="logo-icon"><i class="fas fa-futbol"></i></div>
+                <div class="logo-text"><h1>Soccer kits <span>🔌 SA</span></h1></div>
             </div>
 
             <button class="mobile-menu-btn" id="mobileMenuBtn">
@@ -42,7 +38,8 @@
                     <li><a href="#teams"><i class="fas fa-users"></i> Teams</a></li>
                     <li><a href="#about"><i class="fas fa-info-circle"></i> About</a></li>
                     <li>
-                        <a href="#" id="openCart" class="cart-icon">
+                        <!-- Cart Icon triggers sliding cart panel -->
+                        <a href="#" id="cartBtn" class="cart-icon">
                             <i class="fas fa-shopping-cart"></i>
                             <span class="cart-count" id="cartCount">0</span>
                         </a>
@@ -51,19 +48,20 @@
             </nav>
         </div>
     </header>
-<!-- ======= Cart Panel ======= -->
-<div id="cartPanel" class="cart-panel">
-    <button id="closeCart" class="close-cart">×</button>
-    <h3>Your Cart</h3>
-    <div id="cartItems"></div>
-    <div class="cart-totals">
-        <p>Subtotal: <span id="subtotal">R 0.00</span></p>
-        <p>Tax: <span id="tax">R 0.00</span></p>
-        <p>Total: <span id="total">R 0.00</span></p>
-        <button id="checkoutBtn">Checkout</button>
+
+    <!-- ======= Cart Panel ======= -->
+    <div id="cartPanel" class="cart-panel">
+        <button id="closeCart" class="close-cart">×</button>
+        <h3>Your Cart</h3>
+        <div id="cartItems"></div>
+        <div class="cart-totals">
+            <p>Subtotal: <span id="subtotal">R 0.00</span></p>
+            <p>Tax: <span id="tax">R 0.00</span></p>
+            <p>Total: <span id="total">R 0.00</span></p>
+            <button id="checkoutBtn">Checkout</button>
+        </div>
     </div>
-</div>
-    
+
     <!-- HERO -->
     <section class="hero" id="home">
         <div class="container hero-content">
@@ -88,12 +86,14 @@
                 <p>International & PSL teams</p>
             </div>
 
+            <!-- Category Filter -->
             <div class="category-filter">
                 <button class="category-btn active" data-category="all">All</button>
                 <button class="category-btn" data-category="international">International</button>
                 <button class="category-btn" data-category="psl">PSL</button>
             </div>
 
+            <!-- Products Grid -->
             <div class="products-grid" id="productsGrid"></div>
         </div>
     </section>
@@ -108,17 +108,6 @@
         </div>
     </section>
 
-    <!-- ======= Cart Button ======= -->
-<button id="cartBtn" class="cart-button">
-    <i class="fas fa-shopping-cart"></i> <span id="cartCount">0</span>
-</button>
-
-<!-- ======= Cart Notification ======= -->
-<div id="cartNotification" class="cart-notification"></div>
-
-<!-- ======= Products Grid ======= -->
-<div id="productsGrid" class="products-grid"></div>
-    
     <!-- FOOTER -->
     <footer id="about">
         <div class="container">
@@ -126,7 +115,10 @@
         </div>
     </footer>
 
-    <!-- YOUR JAVASCRIPT FILE -->
+    <!-- Cart Notification -->
+    <div id="cartNotification" class="cart-notification"></div>
+
+    <!-- Your JS -->
     <script src="script.js"></script>
 </body>
-            </html>
+    </html>
