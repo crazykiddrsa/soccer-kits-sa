@@ -2,14 +2,13 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Soccer kits 🔌 SA | Authentic Soccer Jerseys</title>
+    <title>Soccer Kits 🔌 SA | Authentic Soccer Jerseys</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Font Awesome -->
-    <link rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-    <!-- CSS -->
+    <!-- Your CSS -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -21,28 +20,32 @@
     <!-- HEADER -->
     <header>
         <div class="container header-content">
-            <div class="logo-text">
-                <h1>Soccer kits <span>🔌 SA</span></h1>
+            <div class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-futbol"></i>
+                </div>
+                <div class="logo-text">
+                    <h1>Soccer kits <span>🔌 SA</span></h1>
+                </div>
             </div>
+
             <nav>
                 <ul id="navMenu">
-                    <li><a href="#home" class="active"><i class="fas fa-home"></i> Home</a></li>
-                    <li><a href="#products"><i class="fas fa-tshirt"></i> Jerseys</a></li>
-                    <li><a href="#teams"><i class="fas fa-users"></i> Teams</a></li>
-                    <li><a href="#about"><i class="fas fa-info-circle"></i> About</a></li>
+                    <li><a href="#home" class="active">Home</a></li>
+                    <li><a href="#products">Jerseys</a></li>
+                    <li><a href="#teams">Teams</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li>
+                        <button id="cartBtn" class="cart-button">
+                            <i class="fas fa-shopping-cart"></i> <span id="cartCount">0</span>
+                        </button>
+                    </li>
                 </ul>
-                <!-- Cart Button inside nav for clean header -->
-                <button id="cartBtn" class="cart-button">
-                    <i class="fas fa-shopping-cart"></i> <span id="cartCount">0</span>
-                </button>
             </nav>
         </div>
     </header>
 
-    <!-- Cart Notification -->
-    <div id="cartNotification" class="cart-notification"></div>
-
-    <!-- Cart Panel -->
+    <!-- ======= Cart Panel ======= -->
     <div id="cartPanel" class="cart-panel">
         <button id="closeCart" class="close-cart">×</button>
         <h3>Your Cart</h3>
@@ -54,6 +57,9 @@
             <button id="checkoutBtn">Checkout</button>
         </div>
     </div>
+
+    <!-- Cart Notification -->
+    <div id="cartNotification" class="cart-notification"></div>
 
     <!-- HERO SECTION -->
     <section class="hero" id="home">
@@ -71,7 +77,7 @@
         </div>
     </section>
 
-    <!-- PRODUCTS SECTION -->
+    <!-- PRODUCTS / JERSEYS SECTION -->
     <section class="products-section" id="products">
         <div class="container">
             <div class="section-title">
@@ -85,28 +91,32 @@
                 <button class="category-btn" data-category="psl">PSL</button>
             </div>
 
-            <div class="products-grid" id="productsGrid"></div>
+            <div class="products-grid" id="productsGrid">
+                <!-- JS will render jerseys here -->
+            </div>
         </div>
     </section>
 
-    <!-- TEAMS SECTION -->
+    <!-- TEAMS / LOGOS SECTION -->
     <section class="teams-section" id="teams">
         <div class="container">
             <div class="section-title">
                 <h2>Featured Teams</h2>
             </div>
-            <div class="teams-grid" id="teamsGrid"></div>
+            <div class="teams-grid" id="teamsGrid">
+                <!-- JS will render team logos here -->
+            </div>
         </div>
     </section>
 
     <!-- FOOTER -->
     <footer id="about">
         <div class="container">
-            <p>&copy; 2025 Soccer kits 🔌 SA</p>
+            <p>&copy; 2025 Soccer Kits 🔌 SA</p>
         </div>
     </footer>
 
-    <!-- JS -->
+    <!-- Your JS -->
     <script src="script.js"></script>
 </body>
-    </html>
+                        </html>
