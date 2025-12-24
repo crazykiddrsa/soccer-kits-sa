@@ -62,31 +62,26 @@ img {
 }
 
 /* =====================
-   LASER / SCANNER EFFECT
+   LASER / SCANNER EFFECT (FIXED)
 ===================== */
 body::after {
     content: "";
     position: fixed;
-    top: -100%;
-    left: 0;
-    width: 100%;
-    height: 200%;
+    inset: 0;
     background: linear-gradient(
         to bottom,
         transparent 0%,
-        rgba(0, 255, 153, 0.08) 45%,
-        rgba(0, 255, 153, 0.25) 50%,
-        rgba(0, 255, 153, 0.08) 55%,
+        rgba(0, 255, 153, 0.05) 50%,
         transparent 100%
     );
-    animation: scanMove 6s linear infinite;
+    animation: scanMove 10s linear infinite;
     pointer-events: none;
     z-index: -1;
 }
 
 @keyframes scanMove {
-    from { transform: translateY(-50%); }
-    to   { transform: translateY(50%); }
+    from { transform: translateY(-60%); }
+    to   { transform: translateY(60%); }
 }
 
 /* =====================
@@ -137,4 +132,244 @@ nav ul {
 nav a {
     color: #fff;
     font-size: 0.95rem;
-   }
+}
+
+nav a.active,
+nav a:hover {
+    color: #00ff99;
+}
+
+.cart-icon {
+    position: relative;
+}
+
+.cart-count {
+    position: absolute;
+    top: -8px;
+    right: -10px;
+    background: #ff0033;
+    color: #fff;
+    font-size: 0.7rem;
+    padding: 2px 6px;
+    border-radius: 50%;
+}
+
+.mobile-menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 1.3rem;
+}
+
+/* =====================
+   HERO SECTION
+===================== */
+.hero {
+    padding: 80px 0;
+    text-align: center;
+}
+
+.hero h2 {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+}
+
+.hero p {
+    color: #cccccc;
+    margin-bottom: 25px;
+}
+
+.hero-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+/* =====================
+   BUTTONS
+===================== */
+.btn {
+    padding: 12px 25px;
+    border-radius: 30px;
+    font-size: 0.9rem;
+    transition: 0.3s ease;
+}
+
+.btn-primary {
+    background: #00ff99;
+    color: #000;
+}
+
+.btn-primary:hover {
+    background: #00cc77;
+}
+
+.btn-secondary {
+    border: 1px solid #00ff99;
+    color: #00ff99;
+}
+
+.btn-secondary:hover {
+    background: #00ff99;
+    color: #000;
+}
+
+/* =====================
+   SECTIONS
+===================== */
+.section-title {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.section-title h2 {
+    font-size: 2rem;
+}
+
+.section-title p {
+    color: #aaa;
+    margin-top: 5px;
+}
+
+/* =====================
+   PRODUCTS
+===================== */
+.products-section {
+    padding: 70px 0;
+}
+
+.category-filter {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.category-btn {
+    background: none;
+    border: 1px solid #333;
+    color: #fff;
+    padding: 8px 18px;
+    border-radius: 20px;
+    margin: 0 5px;
+    cursor: pointer;
+}
+
+.category-btn.active,
+.category-btn:hover {
+    background: #00ff99;
+    color: #000;
+}
+
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 25px;
+}
+
+.product-card {
+    background: rgba(17, 17, 17, 0.95);
+    border-radius: 15px;
+    padding: 15px;
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+    max-width: 100%;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 255, 153, 0.15);
+}
+
+/* 🔑 IMAGE FIX */
+.product-card img {
+    max-height: 220px;
+    object-fit: contain;
+    margin-bottom: 12px;
+}
+
+.product-card h3 {
+    margin: 10px 0 5px;
+    font-size: 1rem;
+}
+
+.product-card p {
+    color: #00ff99;
+    margin-bottom: 10px;
+}
+
+.product-card button {
+    background: #00ff99;
+    border: none;
+    color: #000;
+    padding: 8px 18px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background 0.3s, box-shadow 0.3s;
+}
+
+.product-card button:hover {
+    background: #00cc77;
+    box-shadow: 0 0 12px rgba(0, 255, 153, 0.6);
+}
+
+/* =====================
+   TEAMS
+===================== */
+.teams-section {
+    padding: 60px 0;
+}
+
+.teams-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 20px;
+}
+
+/* =====================
+   FOOTER
+===================== */
+footer {
+    background: #000;
+    padding: 25px 0;
+    text-align: center;
+    border-top: 1px solid #222;
+}
+
+footer p {
+    font-size: 0.85rem;
+    color: #777;
+}
+
+/* =====================
+   RESPONSIVE (FIXED)
+===================== */
+@media (max-width: 768px) {
+
+    body {
+        font-size: 14px;
+    }
+
+    nav ul {
+        display: none;
+    }
+
+    .mobile-menu-btn {
+        display: block;
+    }
+
+    .hero {
+        padding: 40px 0;
+    }
+
+    .hero h2 {
+        font-size: 1.8rem;
+    }
+
+    .products-section {
+        padding: 50px 0;
+    }
+
+    .products-grid {
+        gap: 18px;
+    }
+       }
