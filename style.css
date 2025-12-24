@@ -1,98 +1,312 @@
-// =======================
-// CONFIRM SCRIPT IS LOADED
-// =======================
-console.log("script.js loaded");
+/* =====================
+   RESET & BASE STYLES
+===================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-// =======================
-// PRODUCT DATA
-// =======================
-const products = [
-    {
-        id: 1,
-        name: "PSG Home Jersey",
-        team: "PSG",
-        price: 1299,
-        category: "international",
-        image: "psg.jpg"
-    },
-    {
-        id: 2,
-        name: "Real Madrid Away Jersey",
-        team: "Real Madrid",
-        price: 1249,
-        category: "international",
-        image: "real-madrid-away-25-26.jpg"
-    },
-    {
-        id: 3,
-        name: "Mamelodi Sundowns Home Jersey",
-        team: "Sundowns",
-        price: 899,
-        category: "psl",
-        image: "sundowns.jpg"
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #0b0b0b;
+    color: #ffffff;
+    line-height: 1.6;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+img {
+    width: 100%;
+    display: block;
+}
+
+/* =====================
+   CONTAINERS
+===================== */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+/* =====================
+   BACKGROUND EFFECTS
+===================== */
+.soccer-background {
+    position: fixed;
+    inset: 0;
+    background: radial-gradient(circle at top, #1a1a1a, #000);
+    z-index: -2;
+}
+
+.soccer-pattern {
+    position: fixed;
+    inset: 0;
+    background-image: repeating-linear-gradient(
+        45deg,
+        rgba(255,255,255,0.03),
+        rgba(255,255,255,0.03) 10px,
+        transparent 10px,
+        transparent 20px
+    );
+    z-index: -1;
+}
+
+/* =====================
+   HEADER & NAV
+===================== */
+header {
+    background: rgba(0, 0, 0, 0.9);
+    border-bottom: 1px solid #222;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 0;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo-icon {
+    background: #00ff99;
+    color: #000;
+    padding: 10px;
+    border-radius: 50%;
+}
+
+.logo-text h1 {
+    font-size: 1.2rem;
+}
+
+.logo-text span {
+    color: #00ff99;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+nav a {
+    color: #fff;
+    font-size: 0.95rem;
+}
+
+nav a.active,
+nav a:hover {
+    color: #00ff99;
+}
+
+.cart-icon {
+    position: relative;
+}
+
+.cart-count {
+    position: absolute;
+    top: -8px;
+    right: -10px;
+    background: #ff0033;
+    color: #fff;
+    font-size: 0.7rem;
+    padding: 2px 6px;
+    border-radius: 50%;
+}
+
+.mobile-menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 1.3rem;
+}
+
+/* =====================
+   HERO SECTION
+===================== */
+.hero {
+    padding: 80px 0;
+    text-align: center;
+}
+
+.hero h2 {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+}
+
+.hero p {
+    color: #cccccc;
+    margin-bottom: 25px;
+}
+
+.hero-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.btn {
+    padding: 12px 25px;
+    border-radius: 30px;
+    font-size: 0.9rem;
+    transition: 0.3s ease;
+}
+
+.btn-primary {
+    background: #00ff99;
+    color: #000;
+}
+
+.btn-primary:hover {
+    background: #00cc77;
+}
+
+.btn-secondary {
+    border: 1px solid #00ff99;
+    color: #00ff99;
+}
+
+.btn-secondary:hover {
+    background: #00ff99;
+    color: #000;
+}
+
+/* =====================
+   SECTIONS
+===================== */
+.section-title {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.section-title h2 {
+    font-size: 2rem;
+}
+
+.section-title p {
+    color: #aaa;
+    margin-top: 5px;
+}
+
+/* =====================
+   PRODUCTS
+===================== */
+.products-section {
+    padding: 70px 0;
+}
+
+.category-filter {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.category-btn {
+    background: none;
+    border: 1px solid #333;
+    color: #fff;
+    padding: 8px 18px;
+    border-radius: 20px;
+    margin: 0 5px;
+    cursor: pointer;
+}
+
+.category-btn.active,
+.category-btn:hover {
+    background: #00ff99;
+    color: #000;
+}
+
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 25px;
+}
+
+.product-card {
+    background: #111;
+    border-radius: 15px;
+    padding: 15px;
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+}
+
+.product-card h3 {
+    margin: 10px 0 5px;
+    font-size: 1rem;
+}
+
+.product-card p {
+    color: #00ff99;
+    margin-bottom: 10px;
+}
+
+.product-card button {
+    background: #00ff99;
+    border: none;
+    color: #000;
+    padding: 8px 15px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+/* =====================
+   TEAMS
+===================== */
+.teams-section {
+    padding: 60px 0;
+}
+
+.teams-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 20px;
+}
+
+/* =====================
+   FOOTER
+===================== */
+footer {
+    background: #000;
+    padding: 25px 0;
+    text-align: center;
+    border-top: 1px solid #222;
+}
+
+footer p {
+    font-size: 0.85rem;
+    color: #777;
+}
+
+/* =====================
+   RESPONSIVE
+===================== */
+@media (max-width: 768px) {
+    nav ul {
+        display: none;
     }
-];
 
-// =======================
-// ELEMENTS
-// =======================
-const productsGrid = document.getElementById("productsGrid");
-const cartCount = document.getElementById("cartCount");
-const categoryButtons = document.querySelectorAll(".category-btn");
+    .mobile-menu-btn {
+        display: block;
+    }
 
-let cart = [];
-
-// =======================
-// RENDER PRODUCTS
-// =======================
-function renderProducts(category = "all") {
-    productsGrid.innerHTML = "";
-
-    const filtered =
-        category === "all"
-            ? products
-            : products.filter(p => p.category === category);
-
-    filtered.forEach(product => {
-        const card = document.createElement("div");
-        card.className = "product-card";
-
-        card.innerHTML = `
-            <img src="${product.image}" alt="${product.name}">
-            <h3>${product.name}</h3>
-            <p>R ${product.price}</p>
-            <button>Add to cart</button>
-        `;
-
-        card.querySelector("button").addEventListener("click", () => {
-            addToCart(product.id);
-        });
-
-        productsGrid.appendChild(card);
-    });
-}
-
-// =======================
-// ADD TO CART
-// =======================
-function addToCart(productId) {
-    cart.push(productId);
-    cartCount.textContent = cart.length;
-}
-
-// =======================
-// CATEGORY FILTER
-// =======================
-categoryButtons.forEach(button => {
-    button.addEventListener("click", () => {
-        categoryButtons.forEach(btn => btn.classList.remove("active"));
-        button.classList.add("active");
-
-        renderProducts(button.dataset.category);
-    });
-});
-
-// =======================
-// INIT
-// =======================
-renderProducts();
+    .hero h2 {
+        font-size: 2rem;
+    }
+    }
