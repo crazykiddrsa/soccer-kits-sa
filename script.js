@@ -13,7 +13,7 @@ const products = [
         team: "PSG",
         price: 1199,
         category: "international",
-        image: "psg.jpg"
+        image: "PSG-J2.jpg"
     },
     {
         id: 2,
