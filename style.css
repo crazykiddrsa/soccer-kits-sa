@@ -1,5 +1,5 @@
 /* =====================
-   RESET & BASE STYLES
+   RESET & BASE
 ===================== */
 * {
     margin: 0;
@@ -12,13 +12,7 @@ body {
     background: #0b0b0b;
     color: #ffffff;
     line-height: 1.6;
-    position: relative;
     overflow-x: hidden;
-}
-
-a {
-    text-decoration: none;
-    color: inherit;
 }
 
 img {
@@ -27,7 +21,7 @@ img {
 }
 
 /* =====================
-   CONTAINERS
+   CONTAINER
 ===================== */
 .container {
     width: 90%;
@@ -36,10 +30,8 @@ img {
 }
 
 /* =====================
-   BACKGROUND LAYERS
+   BACKGROUND EFFECTS
 ===================== */
-
-/* Base dark background */
 .soccer-background {
     position: fixed;
     inset: 0;
@@ -47,7 +39,6 @@ img {
     z-index: -3;
 }
 
-/* Pattern texture */
 .soccer-pattern {
     position: fixed;
     inset: 0;
@@ -61,34 +52,37 @@ img {
     z-index: -2;
 }
 
-/* =====================
-   LASER / SCANNER EFFECT (FIXED)
-===================== */
+/* Scanner animation */
 body::after {
     content: "";
     position: fixed;
-    inset: 0;
+    top: -100%;
+    left: 0;
+    width: 100%;
+    height: 200%;
     background: linear-gradient(
         to bottom,
         transparent 0%,
-        rgba(0, 255, 153, 0.05) 50%,
+        rgba(0,255,153,0.06) 45%,
+        rgba(0,255,153,0.18) 50%,
+        rgba(0,255,153,0.06) 55%,
         transparent 100%
     );
-    animation: scanMove 10s linear infinite;
+    animation: scanMove 6s linear infinite;
     pointer-events: none;
     z-index: -1;
 }
 
 @keyframes scanMove {
-    from { transform: translateY(-60%); }
-    to   { transform: translateY(60%); }
+    from { transform: translateY(-50%); }
+    to { transform: translateY(50%); }
 }
 
 /* =====================
-   HEADER & NAV
+   HEADER
 ===================== */
 header {
-    background: rgba(0, 0, 0, 0.9);
+    background: rgba(0,0,0,0.9);
     border-bottom: 1px solid #222;
     position: sticky;
     top: 0;
@@ -99,7 +93,7 @@ header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 15px 0;
+    padding: 14px 0;
 }
 
 .logo {
@@ -115,10 +109,6 @@ header {
     border-radius: 50%;
 }
 
-.logo-text h1 {
-    font-size: 1.2rem;
-}
-
 .logo-text span {
     color: #00ff99;
 }
@@ -126,132 +116,26 @@ header {
 nav ul {
     list-style: none;
     display: flex;
-    gap: 20px;
+    gap: 18px;
 }
 
 nav a {
     color: #fff;
-    font-size: 0.95rem;
-}
-
-nav a.active,
-nav a:hover {
-    color: #00ff99;
-}
-
-.cart-icon {
-    position: relative;
-}
-
-.cart-count {
-    position: absolute;
-    top: -8px;
-    right: -10px;
-    background: #ff0033;
-    color: #fff;
-    font-size: 0.7rem;
-    padding: 2px 6px;
-    border-radius: 50%;
-}
-
-.mobile-menu-btn {
-    display: none;
-    background: none;
-    border: none;
-    color: #fff;
-    font-size: 1.3rem;
-}
-
-/* =====================
-   HERO SECTION
-===================== */
-.hero {
-    padding: 80px 0;
-    text-align: center;
-}
-
-.hero h2 {
-    font-size: 2.5rem;
-    margin-bottom: 15px;
-}
-
-.hero p {
-    color: #cccccc;
-    margin-bottom: 25px;
-}
-
-.hero-buttons {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-}
-
-/* =====================
-   BUTTONS
-===================== */
-.btn {
-    padding: 12px 25px;
-    border-radius: 30px;
     font-size: 0.9rem;
-    transition: 0.3s ease;
-}
-
-.btn-primary {
-    background: #00ff99;
-    color: #000;
-}
-
-.btn-primary:hover {
-    background: #00cc77;
-}
-
-.btn-secondary {
-    border: 1px solid #00ff99;
-    color: #00ff99;
-}
-
-.btn-secondary:hover {
-    background: #00ff99;
-    color: #000;
 }
 
 /* =====================
-   SECTIONS
+   CATEGORY BUTTONS
 ===================== */
-.section-title {
-    text-align: center;
-    margin-bottom: 40px;
-}
-
-.section-title h2 {
-    font-size: 2rem;
-}
-
-.section-title p {
-    color: #aaa;
-    margin-top: 5px;
-}
-
-/* =====================
-   PRODUCTS
-===================== */
-.products-section {
-    padding: 70px 0;
-}
-
-.category-filter {
-    text-align: center;
-    margin-bottom: 30px;
-}
-
 .category-btn {
-    background: none;
-    border: 1px solid #333;
+    background: #111;
     color: #fff;
-    padding: 8px 18px;
+    border: 1px solid #333;
+    padding: 6px 14px;
+    margin: 10px 5px 20px 0;
     border-radius: 20px;
-    margin: 0 5px;
     cursor: pointer;
+    font-size: 0.85rem;
 }
 
 .category-btn.active,
@@ -260,116 +144,78 @@ nav a:hover {
     color: #000;
 }
 
-.products-grid {
+/* =====================
+   PRODUCTS GRID
+===================== */
+#productsGrid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 25px;
+    gap: 20px;
+    margin-bottom: 40px;
 }
 
+/* =====================
+   PRODUCT CARD
+===================== */
 .product-card {
-    background: rgba(17, 17, 17, 0.95);
-    border-radius: 15px;
-    padding: 15px;
-    text-align: center;
-    transition: transform 0.3s, box-shadow 0.3s;
-    max-width: 100%;
+    background: rgba(15,15,15,0.95);
+    border: 1px solid #222;
+    border-radius: 14px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .product-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(0, 255, 153, 0.15);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.6);
 }
 
-/* 🔑 IMAGE FIX */
+/* IMAGE FIX */
 .product-card img {
-    max-height: 220px;
+    height: 240px;
     object-fit: contain;
-    margin-bottom: 12px;
+    background: #fff;
+    padding: 10px;
 }
 
+/* CONTENT */
 .product-card h3 {
-    margin: 10px 0 5px;
     font-size: 1rem;
+    padding: 12px;
 }
 
 .product-card p {
+    padding: 0 12px;
     color: #00ff99;
-    margin-bottom: 10px;
+    font-weight: bold;
 }
 
+/* BUTTON */
 .product-card button {
+    width: calc(100% - 24px);
+    margin: 12px;
+    padding: 10px;
     background: #00ff99;
-    border: none;
     color: #000;
-    padding: 8px 18px;
+    border: none;
     border-radius: 20px;
+    font-weight: bold;
     cursor: pointer;
-    transition: background 0.3s, box-shadow 0.3s;
 }
 
 .product-card button:hover {
-    background: #00cc77;
-    box-shadow: 0 0 12px rgba(0, 255, 153, 0.6);
+    background: #00cc7a;
 }
 
 /* =====================
-   TEAMS
+   MOBILE TWEAKS
 ===================== */
-.teams-section {
-    padding: 60px 0;
-}
-
-.teams-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: 20px;
-}
-
-/* =====================
-   FOOTER
-===================== */
-footer {
-    background: #000;
-    padding: 25px 0;
-    text-align: center;
-    border-top: 1px solid #222;
-}
-
-footer p {
-    font-size: 0.85rem;
-    color: #777;
-}
-
-/* =====================
-   RESPONSIVE (FIXED)
-===================== */
-@media (max-width: 768px) {
-
-    body {
-        font-size: 14px;
+@media (max-width: 600px) {
+    .product-card img {
+        height: 200px;
     }
 
     nav ul {
-        display: none;
+        gap: 12px;
     }
-
-    .mobile-menu-btn {
-        display: block;
-    }
-
-    .hero {
-        padding: 40px 0;
-    }
-
-    .hero h2 {
-        font-size: 1.8rem;
-    }
-
-    .products-section {
-        padding: 50px 0;
-    }
-
-    .products-grid {
-        gap: 18px;
-    }
-       }
+   }
