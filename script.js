@@ -38,8 +38,16 @@ const products = [
 // =======================
 const productsGrid = document.getElementById("productsGrid");
 const cartCount = document.getElementById("cartCount");
+
+// optional (only if they exist in HTML)
+const cartItems = document.getElementById("cartItems");
+const cartTotal = document.getElementById("cartTotal");
+
 const categoryButtons = document.querySelectorAll(".category-btn");
 
+// =======================
+// CART STATE
+// =======================
 let cart = [];
 
 // =======================
@@ -65,7 +73,7 @@ function renderProducts(category = "all") {
         `;
 
         card.querySelector("button").addEventListener("click", () => {
-            addToCart(product.id);
+            addToCart(product);
         });
 
         productsGrid.appendChild(card);
@@ -75,9 +83,41 @@ function renderProducts(category = "all") {
 // =======================
 // ADD TO CART
 // =======================
-function addToCart(productId) {
-    cart.push(productId);
-    cartCount.textContent = cart.length;
+function addToCart(product) {
+    const existing = cart.find(item => item.id === product.id);
+
+    if (existing) {
+        existing.qty++;
+    } else {
+        cart.push({ ...product, qty: 1 });
+    }
+
+    updateCartUI();
+}
+
+// =======================
+// UPDATE CART UI
+// =======================
+function updateCartUI() {
+    // update counter
+    const totalQty = cart.reduce((sum, item) => sum + item.qty, 0);
+    if (cartCount) cartCount.textContent = totalQty;
+
+    // optional detailed cart
+    if (cartItems && cartTotal) {
+        cartItems.innerHTML = "";
+        let total = 0;
+
+        cart.forEach(item => {
+            total += item.price * item.qty;
+
+            const li = document.createElement("li");
+            li.textContent = `${item.name} × ${item.qty} — R${item.price * item.qty}`;
+            cartItems.appendChild(li);
+        });
+
+        cartTotal.textContent = total;
+    }
 }
 
 // =======================
@@ -96,3 +136,4 @@ categoryButtons.forEach(button => {
 // INIT
 // =======================
 renderProducts();
+updateCartUI();
