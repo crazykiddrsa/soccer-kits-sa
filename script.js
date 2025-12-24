@@ -1,5 +1,5 @@
 // ===========================
-// Soccer Kits SA - Full Cart Script
+// Soccer Kits SA - Full Script.js
 // ===========================
 document.addEventListener("DOMContentLoaded", () => {
 
@@ -20,6 +20,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const confirmationModal = document.getElementById("confirmationModal");
     const closeModalBtns = document.querySelectorAll(".close-modal");
     const eftDetails = document.getElementById("eftDetails");
+    const notification = document.getElementById("cartNotification"); // new div for messages
 
     // =========================
     // PRODUCT DATA
@@ -42,13 +43,21 @@ document.addEventListener("DOMContentLoaded", () => {
     closeCartBtn.addEventListener("click", () => cartPanel.classList.remove("active"));
 
     // =========================
+    // SHOW TEMP NOTIFICATION
+    // =========================
+    function showNotification(msg) {
+        if(!notification) return;
+        notification.textContent = msg;
+        notification.classList.add("show");
+        setTimeout(()=> notification.classList.remove("show"), 2000);
+    }
+
+    // =========================
     // RENDER PRODUCTS GRID
     // =========================
     function renderProducts(category = "all") {
         productsGrid.innerHTML = "";
-
         const filtered = category === "all" ? products : products.filter(p => p.category === category);
-
         filtered.forEach(product => {
             const card = document.createElement("div");
             card.className = "product-card";
@@ -58,7 +67,10 @@ document.addEventListener("DOMContentLoaded", () => {
                 <p>R ${product.price}</p>
                 <button data-id="${product.id}">Add to cart</button>
             `;
-            card.querySelector("button").addEventListener("click", () => addToCart(product.id));
+            card.querySelector("button").addEventListener("click", () => {
+                addToCart(product.id);
+                showNotification(`${product.name} added to cart!`);
+            });
             productsGrid.appendChild(card);
         });
     }
@@ -81,7 +93,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // =========================
-    // SAVE CART TO LOCALSTORAGE
+    // SAVE CART
     // =========================
     function saveCart() {
         localStorage.setItem("cart", JSON.stringify(cart));
@@ -91,6 +103,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // RENDER CART PANEL
     // =========================
     function renderCart() {
+        if(!cartItemsContainer) return;
         cartItemsContainer.innerHTML = "";
         if(cart.length === 0){
             cartItemsContainer.innerHTML = `<p class="empty-cart">Your cart is empty ⚽</p>`;
@@ -117,16 +130,13 @@ document.addEventListener("DOMContentLoaded", () => {
             });
         }
 
-        // Update totals
         const subtotal = cart.reduce((acc, i) => acc + i.price * i.qty, 0);
         const tax = +(subtotal * 0.15).toFixed(2);
         const shipping = cart.length > 0 ? 5 : 0;
         subtotalEl.textContent = `R ${subtotal.toFixed(2)}`;
         taxEl.textContent = `R ${tax.toFixed(2)}`;
         totalEl.textContent = `R ${(subtotal + tax + shipping).toFixed(2)}`;
-
         cartCount.textContent = cart.reduce((acc,i)=>acc+i.qty,0);
-        saveCart();
     }
 
     renderCart();
@@ -145,11 +155,12 @@ document.addEventListener("DOMContentLoaded", () => {
         if(e.target.closest(".remove-item")){
             cart = cart.filter(i=> i.id!==id);
         }
+        saveCart();
         renderCart();
     });
 
     // =========================
-    // CATEGORY FILTER (if buttons exist)
+    // CATEGORY FILTER
     // =========================
     const categoryButtons = document.querySelectorAll(".category-btn");
     categoryButtons.forEach(button => {
@@ -180,6 +191,7 @@ document.addEventListener("DOMContentLoaded", () => {
         document.getElementById("orderTotal").textContent = totalEl.textContent;
         document.getElementById("paymentMethod").textContent = document.querySelector('input[name="payment"]:checked').nextElementSibling.querySelector("h4").textContent;
         cart = [];
+        saveCart();
         renderCart();
     });
 
