@@ -12,6 +12,8 @@ body {
     background: #0b0b0b;
     color: #ffffff;
     line-height: 1.6;
+    position: relative;
+    overflow-x: hidden;
 }
 
 a {
@@ -34,15 +36,18 @@ img {
 }
 
 /* =====================
-   BACKGROUND EFFECTS
+   BACKGROUND LAYERS
 ===================== */
+
+/* Base dark background */
 .soccer-background {
     position: fixed;
     inset: 0;
     background: radial-gradient(circle at top, #1a1a1a, #000);
-    z-index: -2;
+    z-index: -3;
 }
 
+/* Pattern texture */
 .soccer-pattern {
     position: fixed;
     inset: 0;
@@ -53,7 +58,35 @@ img {
         transparent 10px,
         transparent 20px
     );
+    z-index: -2;
+}
+
+/* =====================
+   LASER / SCANNER EFFECT
+===================== */
+body::after {
+    content: "";
+    position: fixed;
+    top: -100%;
+    left: 0;
+    width: 100%;
+    height: 200%;
+    background: linear-gradient(
+        to bottom,
+        transparent 0%,
+        rgba(0, 255, 153, 0.08) 45%,
+        rgba(0, 255, 153, 0.25) 50%,
+        rgba(0, 255, 153, 0.08) 55%,
+        transparent 100%
+    );
+    animation: scanMove 6s linear infinite;
+    pointer-events: none;
     z-index: -1;
+}
+
+@keyframes scanMove {
+    from { transform: translateY(-50%); }
+    to   { transform: translateY(50%); }
 }
 
 /* =====================
@@ -64,7 +97,7 @@ header {
     border-bottom: 1px solid #222;
     position: sticky;
     top: 0;
-    z-index: 1000;
+    z-index: 10;
 }
 
 .header-content {
@@ -104,209 +137,4 @@ nav ul {
 nav a {
     color: #fff;
     font-size: 0.95rem;
-}
-
-nav a.active,
-nav a:hover {
-    color: #00ff99;
-}
-
-.cart-icon {
-    position: relative;
-}
-
-.cart-count {
-    position: absolute;
-    top: -8px;
-    right: -10px;
-    background: #ff0033;
-    color: #fff;
-    font-size: 0.7rem;
-    padding: 2px 6px;
-    border-radius: 50%;
-}
-
-.mobile-menu-btn {
-    display: none;
-    background: none;
-    border: none;
-    color: #fff;
-    font-size: 1.3rem;
-}
-
-/* =====================
-   HERO SECTION
-===================== */
-.hero {
-    padding: 80px 0;
-    text-align: center;
-}
-
-.hero h2 {
-    font-size: 2.5rem;
-    margin-bottom: 15px;
-}
-
-.hero p {
-    color: #cccccc;
-    margin-bottom: 25px;
-}
-
-.hero-buttons {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-}
-
-.btn {
-    padding: 12px 25px;
-    border-radius: 30px;
-    font-size: 0.9rem;
-    transition: 0.3s ease;
-}
-
-.btn-primary {
-    background: #00ff99;
-    color: #000;
-}
-
-.btn-primary:hover {
-    background: #00cc77;
-}
-
-.btn-secondary {
-    border: 1px solid #00ff99;
-    color: #00ff99;
-}
-
-.btn-secondary:hover {
-    background: #00ff99;
-    color: #000;
-}
-
-/* =====================
-   SECTIONS
-===================== */
-.section-title {
-    text-align: center;
-    margin-bottom: 40px;
-}
-
-.section-title h2 {
-    font-size: 2rem;
-}
-
-.section-title p {
-    color: #aaa;
-    margin-top: 5px;
-}
-
-/* =====================
-   PRODUCTS
-===================== */
-.products-section {
-    padding: 70px 0;
-}
-
-.category-filter {
-    text-align: center;
-    margin-bottom: 30px;
-}
-
-.category-btn {
-    background: none;
-    border: 1px solid #333;
-    color: #fff;
-    padding: 8px 18px;
-    border-radius: 20px;
-    margin: 0 5px;
-    cursor: pointer;
-}
-
-.category-btn.active,
-.category-btn:hover {
-    background: #00ff99;
-    color: #000;
-}
-
-.products-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 25px;
-}
-
-.product-card {
-    background: #111;
-    border-radius: 15px;
-    padding: 15px;
-    text-align: center;
-    transition: transform 0.3s;
-}
-
-.product-card:hover {
-    transform: translateY(-5px);
-}
-
-.product-card h3 {
-    margin: 10px 0 5px;
-    font-size: 1rem;
-}
-
-.product-card p {
-    color: #00ff99;
-    margin-bottom: 10px;
-}
-
-.product-card button {
-    background: #00ff99;
-    border: none;
-    color: #000;
-    padding: 8px 15px;
-    border-radius: 20px;
-    cursor: pointer;
-}
-
-/* =====================
-   TEAMS
-===================== */
-.teams-section {
-    padding: 60px 0;
-}
-
-.teams-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: 20px;
-}
-
-/* =====================
-   FOOTER
-===================== */
-footer {
-    background: #000;
-    padding: 25px 0;
-    text-align: center;
-    border-top: 1px solid #222;
-}
-
-footer p {
-    font-size: 0.85rem;
-    color: #777;
-}
-
-/* =====================
-   RESPONSIVE
-===================== */
-@media (max-width: 768px) {
-    nav ul {
-        display: none;
-    }
-
-    .mobile-menu-btn {
-        display: block;
-    }
-
-    .hero h2 {
-        font-size: 2rem;
-    }
-    }
+   }
