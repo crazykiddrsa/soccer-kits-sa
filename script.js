@@ -24,14 +24,15 @@ document.addEventListener("DOMContentLoaded", () => {
     // PRODUCT DATA
     // =========================
     const products = [
-        {id: 1, name: "PSG Away Jersey", team: "PSG", price: 1199, category: "international", image: "PSG-J2.jpg"},
-        {id: 2, name: "Real Madrid Away Jersey", team: "Real Madrid", price: 1249, category: "international", image: "RM-J2.jpg"},
-        {id: 3, name: "Barcelona Away Jersey", team: "Barcelona", price: 1299, category: "international", image: "FCB-J2.jpg"},
-        {id: 4, name: "Liverpool Home Jersey", team: "Liverpool", price: 1099, category: "international", image: "LFC-J.jpg"},
-        {id: 5, name: "Kaizer Chiefs Away Jersey", team: "Kaizer Chiefs", price: 899, category: "psl", image: "KC-J2.jpg"},
-        {id: 6, name: "Mamelodi Sundowns Home Jersey", team: "Sundowns", price: 899, category: "psl", image: "SD-J.jpg"},
-        {id: 7, name: "Orlando Pirates Home Jersey", team: "Orlando Pirates", price: 899, category: "psl", image: "OP-J.jpg"}
-    ];
+    {id: 1, name: "PSG Away Jersey", team: "PSG", price: 1199, category: "international", image: "PSG-J2.jpg"},
+    {id: 2, name: "Real Madrid Away Jersey", team: "Real Madrid", price: 1249, category: "international", image: "RM-J2.jpg"},
+    {id: 3, name: "Barcelona Away Jersey", team: "Barcelona", price: 1299, category: "international", image: "FCB-J2.jpg"},
+    {id: 4, name: "Liverpool Home Jersey", team: "Liverpool", price: 1099, category: "international", image: "LFC-J.jpg"},
+    {id: 5, name: "Kaizer Chiefs Away Jersey", team: "Kaizer Chiefs", price: 899, category: "psl", image: "KC-J2.jpg"},
+    {id: 6, name: "Mamelodi Sundowns Home Jersey", team: "Sundowns", price: 899, category: "psl", image: "SD-J.jpg"},
+    {id: 7, name: "Orlando Pirates Home Jersey", team: "Orlando Pirates", price: 899, category: "psl", image: "OP-J.jpg"},
+    {id: 8, name: "Man City Home Jersey", team: "Man City", price: 1299, category: "international", image: "MC-J.jpg"}
+];
 
     // =========================
 // TEAM DATA
