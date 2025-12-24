@@ -12,111 +12,113 @@
     <!-- CSS -->
     <link rel="stylesheet" href="style.css">
 
-    <!-- Google AdSense -->
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7447247941010903"
-     crossorigin="anonymous"></script>
+    <!-- Google AdSense (Auto Ads) -->
+    <script data-ad-client="ca-pub-7447247941010903" async
+        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 </head>
 <body>
-
-    <!-- BACKGROUND -->
-    <div class="soccer-background"></div>
-    <div class="soccer-pattern"></div>
-
-    <!-- HEADER -->
+    <!-- Header -->
     <header>
-        <div class="container header-content">
-            <div class="logo">
-                <h1>Soccer Kits <span>🔌 SA</span></h1>
-            </div>
-            <nav>
-                <ul>
-                    <li><a href="#home" class="active"><i class="fas fa-home"></i> Home</a></li>
-                    <li><a href="#products"><i class="fas fa-tshirt"></i> Jerseys</a></li>
-                    <li><a href="#teams"><i class="fas fa-users"></i> Teams</a></li>
-                    <li><a href="#about"><i class="fas fa-info-circle"></i> About</a></li>
-                    <li>
-                        <a href="#" class="cart-icon" id="cartBtn">
-                            <i class="fas fa-shopping-cart"></i>
-                            <span class="cart-count" id="cartCount">0</span>
-                        </a>
-                    </li>
-                </ul>
-            </nav>
+        <div class="container">
+            <h1>Soccer Kits 🔌 SA</h1>
+            <p>Authentic Soccer Jerseys</p>
         </div>
     </header>
 
-    <!-- CART PANEL -->
-    <div id="cartPanel" class="cart-panel">
-        <button id="closeCart" class="close-cart">&times;</button>
-        <h3>Your Cart</h3>
-        <div id="cartItems"></div>
-        <div class="cart-totals">
-            <p>Subtotal: <span id="subtotal">R 0.00</span></p>
-            <p>Tax: <span id="tax">R 0.00</span></p>
-            <p>Total: <span id="total">R 0.00</span></p>
-            <button id="checkoutBtn">Checkout</button>
-        </div>
+    <!-- Ad Spot 1 -->
+    <div class="ad-container">
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-7447247941010903"
+             data-ad-slot="1111111111"
+             data-ad-format="auto"></ins>
     </div>
 
-    <!-- CART NOTIFICATION -->
-    <div id="cartNotification" class="cart-notification"></div>
-
-    <!-- HERO -->
-    <section class="hero" id="home">
-        <div class="container hero-content">
-            <h2>Authentic Soccer Jerseys</h2>
-            <p>Official & replica kits delivered across South Africa</p>
-            <div class="hero-buttons">
-                <a href="#products" class="btn btn-primary">
-                    <i class="fas fa-shopping-bag"></i> Shop Now
-                </a>
-                <a href="#teams" class="btn btn-secondary">
-                    <i class="fas fa-search"></i> Browse Teams
-                </a>
+    <!-- Main Content -->
+    <main>
+        <section class="jerseys">
+            <h2>Featured Jerseys</h2>
+            <div class="jersey-grid">
+                <!-- Example Jersey -->
+                <div class="jersey">
+                    <img src="RM-LOGO.png" alt="Real Madrid Jersey">
+                    <p>Real Madrid Jersey - R1299</p>
+                </div>
+                <div class="jersey">
+                    <img src="PSG-LOGO.png" alt="PSG Jersey">
+                    <p>PSG Jersey - R1299</p>
+                </div>
+                <div class="jersey">
+                    <img src="LFC-LOGO.png" alt="Liverpool Jersey">
+                    <p>Liverpool Jersey - R1299</p>
+                </div>
+                <div class="jersey">
+                    <img src="FCB-LOGO.png" alt="Barcelona Jersey">
+                    <p>Barcelona Jersey - R1299</p>
+                </div>
             </div>
+        </section>
+
+        <!-- Ad Spot 2 -->
+        <div class="ad-container" style="margin-top: 150px;">
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-7447247941010903"
+                 data-ad-slot="2222222222"
+                 data-ad-format="auto"></ins>
         </div>
-    </section>
 
-    <!-- TEAMS -->
-    <section class="teams-section" id="teams">
-        <div class="container">
-            <div class="section-title">
-                <h2>Featured Teams</h2>
-            </div>
-            <div class="teams-grid" id="teamsGrid">
-                <!-- JS will insert logos here -->
-            </div>
+        <!-- Additional Content Section -->
+        <section class="news">
+            <h2>Latest Football News</h2>
+            <p>Stay updated with all the football transfers, scores, and highlights.</p>
+        </section>
+
+        <!-- Ad Spot 3 -->
+        <div class="ad-container" style="margin-top: 150px;">
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-7447247941010903"
+                 data-ad-slot="3333333333"
+                 data-ad-format="auto"></ins>
         </div>
-    </section>
 
-    <!-- PRODUCTS -->
-    <section class="products-section" id="products">
-        <div class="container">
-            <div class="section-title">
-                <h2>Premium Soccer Kits</h2>
-                <p>International & PSL teams</p>
-            </div>
-
-            <div class="category-filter">
-                <button class="category-btn active" data-category="all">All</button>
-                <button class="category-btn" data-category="international">International</button>
-                <button class="category-btn" data-category="psl">PSL</button>
-            </div>
-
-            <div class="products-grid" id="productsGrid">
-                <!-- JS will insert jerseys here -->
-            </div>
+        <!-- Ad Spot 4 -->
+        <div class="ad-container" style="margin-top: 150px;">
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-7447247941010903"
+                 data-ad-slot="4444444444"
+                 data-ad-format="auto"></ins>
         </div>
-    </section>
 
-    <!-- FOOTER -->
-    <footer id="about">
-        <div class="container">
-            <p>&copy; 2025 Soccer Kits 🔌 SA</p>
+        <!-- Ad Spot 5 -->
+        <div class="ad-container" style="margin-top: 150px;">
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-7447247941010903"
+                 data-ad-slot="5555555555"
+                 data-ad-format="auto"></ins>
         </div>
+
+        <!-- Ad Spot 6 -->
+        <div class="ad-container" style="margin-top: 150px; margin-bottom: 100px;">
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-7447247941010903"
+                 data-ad-slot="6666666666"
+                 data-ad-format="auto"></ins>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Soccer Kits SA. All rights reserved.</p>
     </footer>
 
-    <!-- SCRIPT -->
-    <script src="script.js"></script>
+    <!-- Initialize Ads -->
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
 </body>
-        </html>
+    </html>
