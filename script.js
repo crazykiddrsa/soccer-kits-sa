@@ -34,18 +34,18 @@ document.addEventListener("DOMContentLoaded", () => {
     ];
 
     // =========================
-    // TEAM DATA
-    // =========================
-    const teams = [
-        {name: "PSG", logo: "PSG-LOGO.jpg"},
-        {name: "Real Madrid", logo: "RM-LOGO.jpg"},
-        {name: "Barcelona", logo: "FCB-LOGO.jpg"},
-        {name: "Liverpool", logo: "LFC-LOGO.jpg"},
-        {name: "Man City", logo: "MC-LOGO.jpg"},
-        {name: "Orlando Pirates", logo: "OP-LOGO.jpg"},
-        {name: "Sundowns", logo: "SD-LOGO.jpg"},
-        {name: "Kaizer Chiefs", logo: "KC-LOGO.jpg"}
-    ];
+// TEAM DATA
+// =========================
+const teams = [
+    {name: "PSG", logo: "PSG-LOGO.png"},
+    {name: "Real Madrid", logo: "RM-LOGO.png"},
+    {name: "Barcelona", logo: "FCB-LOGO.png"},
+    {name: "Liverpool", logo: "LFC-LOGO.png"},
+    {name: "Man City", logo: "MC-LOGO.jpg"},
+    {name: "Orlando Pirates", logo: "OP-LOGO.jpg"},
+    {name: "Sundowns", logo: "SD-LOGO.jpg"},
+    {name: "Kaizer Chiefs", logo: "KC-LOGO.jpg"}
+];
 
     // =========================
     // CART
