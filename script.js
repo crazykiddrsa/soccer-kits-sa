@@ -42,7 +42,7 @@ const teams = [
 {name: "Real Madrid", logo: "RM-LOGO.png"},
 {name: "Barcelona", logo: "FCB-LOGO.png"},
 {name: "Liverpool", logo: "LFC-LOGO.png"},
-{name: "Man City", logo: "MC-LOGO.png"},
+{name: "Man City", logo: "MC-LOGOO.png"},
 {name: "Orlando Pirates", logo: "OP-LOGO.jpg"},
 {name: "Sundowns", logo: "SD-LOGO.jpg"},
 {name: "Kaizer Chiefs", logo: "KC-LOGO.jpg"}
