@@ -18,7 +18,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const checkoutBtn = document.getElementById("checkoutBtn");
     const notification = document.getElementById("cartNotification");
     const teamsGrid = document.getElementById("teamsGrid");
-    const categoryButtons = document.querySelectorAll(".category-btn");
 
     // =========================
     // PRODUCT DATA
@@ -34,9 +33,6 @@ document.addEventListener("DOMContentLoaded", () => {
         {id: 8, name: "Manchester City Home Jersey", team: "Man City", price: 1249, category: "international", image: "MC-J.jpg"}
     ];
 
-    // =========================
-    // TEAM DATA
-    // =========================
     const teams = [
         {name: "PSG", logo: "PSG-LOGO.png"},
         {name: "Real Madrid", logo: "RM-LOGO.png"},
@@ -49,7 +45,7 @@ document.addEventListener("DOMContentLoaded", () => {
     ];
 
     // =========================
-    // CART DATA
+    // LOAD CART FROM LOCALSTORAGE
     // =========================
     let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
@@ -60,21 +56,24 @@ document.addEventListener("DOMContentLoaded", () => {
     closeCartBtn.addEventListener("click", () => cartPanel.classList.remove("active"));
 
     // =========================
-    // NOTIFICATION
+    // SHOW TEMP NOTIFICATION
     // =========================
     function showNotification(msg) {
         if(!notification) return;
         notification.textContent = msg;
         notification.classList.add("show");
-        setTimeout(() => notification.classList.remove("show"), 2000);
+        setTimeout(()=> notification.classList.remove("show"), 2000);
     }
 
     // =========================
-    // RENDER PRODUCTS
+    // RENDER PRODUCTS GRID
     // =========================
-    function renderProducts(filterTeam = "all") {
+    function renderProducts(category = "all", filterTeam = null) {
         productsGrid.innerHTML = "";
-        const filtered = filterTeam === "all" ? products : products.filter(p => p.team === filterTeam);
+        let filtered = products;
+        if(category !== "all") filtered = filtered.filter(p => p.category === category);
+        if(filterTeam) filtered = filtered.filter(p => p.team === filterTeam);
+
         filtered.forEach(product => {
             const card = document.createElement("div");
             card.className = "product-card";
@@ -87,27 +86,11 @@ document.addEventListener("DOMContentLoaded", () => {
             card.querySelector("button").addEventListener("click", () => {
                 addToCart(product.id);
                 showNotification(`${product.name} added to cart!`);
+                animateCartButton();
             });
             productsGrid.appendChild(card);
         });
     }
-
-    // =========================
-    // RENDER TEAMS
-    // =========================
-    function renderTeams() {
-        teamsGrid.innerHTML = "";
-        teams.forEach(team => {
-            const div = document.createElement("div");
-            div.className = "team-card";
-            div.innerHTML = `<img src="${team.logo}" alt="${team.name}" title="${team.name}">`;
-            div.addEventListener("click", () => renderProducts(team.name));
-            teamsGrid.appendChild(div);
-        });
-    }
-
-    renderProducts();
-    renderTeams();
 
     // =========================
     // ADD TO CART
@@ -115,14 +98,10 @@ document.addEventListener("DOMContentLoaded", () => {
     function addToCart(productId) {
         const product = products.find(p => p.id === productId);
         const existing = cart.find(i => i.id === productId);
-        if(existing) {
-            existing.qty += 1;
-        } else {
-            cart.push({...product, qty: 1});
-        }
+        if(existing) existing.qty += 1;
+        else cart.push({...product, qty: 1});
         saveCart();
         renderCart();
-        animateCartIcon();
     }
 
     // =========================
@@ -133,7 +112,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // =========================
-    // RENDER CART
+    // RENDER CART PANEL
     // =========================
     function renderCart() {
         cartItemsContainer.innerHTML = "";
@@ -178,15 +157,9 @@ document.addEventListener("DOMContentLoaded", () => {
     // =========================
     cartItemsContainer.addEventListener("click", (e)=>{
         const id = parseInt(e.target.dataset.id);
-        if(e.target.classList.contains("increase")){
-            cart = cart.map(i=> i.id===id ? {...i, qty: i.qty+1} : i);
-        }
-        if(e.target.classList.contains("decrease")){
-            cart = cart.map(i=> i.id===id ? {...i, qty: i.qty-1} : i).filter(i=> i.qty>0);
-        }
-        if(e.target.closest(".remove-item")){
-            cart = cart.filter(i=> i.id!==id);
-        }
+        if(e.target.classList.contains("increase")) cart = cart.map(i=> i.id===id ? {...i, qty: i.qty+1} : i);
+        if(e.target.classList.contains("decrease")) cart = cart.map(i=> i.id===id ? {...i, qty: i.qty-1} : i).filter(i=> i.qty>0);
+        if(e.target.closest(".remove-item")) cart = cart.filter(i=> i.id!==id);
         saveCart();
         renderCart();
     });
@@ -194,19 +167,42 @@ document.addEventListener("DOMContentLoaded", () => {
     // =========================
     // CATEGORY FILTER
     // =========================
+    const categoryButtons = document.querySelectorAll(".category-btn");
     categoryButtons.forEach(button => {
         button.addEventListener("click", () => {
             categoryButtons.forEach(btn => btn.classList.remove("active"));
             button.classList.add("active");
-            renderProducts(button.dataset.category === "all" ? "all" : null);
+            renderProducts(button.dataset.category);
         });
     });
 
     // =========================
-    // CART ICON ANIMATION
+    // RENDER TEAMS
     // =========================
-    function animateCartIcon() {
+    function renderTeams() {
+        teamsGrid.innerHTML = "";
+        teams.forEach(team => {
+            const div = document.createElement("div");
+            div.className = "team-card";
+            div.innerHTML = `
+                <img src="${team.logo}" alt="${team.name}" data-team="${team.name}">
+                <h4>${team.name}</h4>
+            `;
+            div.querySelector("img").addEventListener("click", ()=>{
+                renderProducts("all", team.name);
+            });
+            teamsGrid.appendChild(div);
+        });
+    }
+
+    renderProducts();
+    renderTeams();
+
+    // =========================
+    // ANIMATE CART BUTTON
+    // =========================
+    function animateCartButton(){
         openCartBtn.classList.add("bump");
-        setTimeout(() => openCartBtn.classList.remove("bump"), 300);
+        setTimeout(()=> openCartBtn.classList.remove("bump"), 300);
     }
 });
