@@ -9,7 +9,7 @@
 
 body {
     font-family: Arial, Helvetica, sans-serif;
-    background: #f5f5f5; /* light background for content */
+    background: #f5f5f5;
     color: #111;
     line-height: 1.6;
 }
@@ -49,15 +49,6 @@ header p {
 }
 
 /* =====================
-   AD CONTAINER
-===================== */
-.ad-container {
-    width: 100%;
-    text-align: center;
-    margin: 100px 0; /* vertical spacing for ads */
-}
-
-/* =====================
    MAIN CONTENT
 ===================== */
 main {
@@ -87,12 +78,6 @@ main {
     border-radius: 10px;
     text-align: center;
     box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    transition: transform 0.2s, box-shadow 0.2s;
-}
-
-.jersey:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 12px rgba(0,0,0,0.2);
 }
 
 .jersey img {
@@ -134,27 +119,11 @@ footer {
 }
 
 /* =====================
-   RESPONSIVE AD SPACING
+   RESPONSIVE
 ===================== */
-@media (max-width: 1024px) {
-    .ad-container {
-        margin: 120px 0;
-    }
-}
-
 @media (max-width: 768px) {
-    .ad-container {
-        margin: 150px 0; /* more spacing on tablet/mobile */
-    }
-
     header h1 {
         font-size: 1.8rem;
-    }
-}
-
-@media (max-width: 480px) {
-    header h1 {
-        font-size: 1.5rem;
     }
 
     .jersey-grid {
@@ -168,21 +137,4 @@ footer {
     .news p {
         font-size: 0.95rem;
     }
-}
-
-/* =====================
-   BUTTONS (optional)
-===================== */
-button {
-    background-color: #ff4b2b;
-    color: #fff;
-    border: none;
-    padding: 10px 15px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background 0.2s;
-}
-
-button:hover {
-    background-color: #e03e1b;
    }
