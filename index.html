@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Soccer Kits 🔌 SA | Authentic Soccer Jerseys</title>
+    <title>Soccer kits 🔌 SA | Authentic Soccer Jerseys</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Font Awesome -->
@@ -13,103 +13,92 @@
 </head>
 <body>
 
-    <!-- Background -->
-    <div class="soccer-background"></div>
-    <div class="soccer-pattern"></div>
+<!-- Background -->
+<div class="soccer-background"></div>
+<div class="soccer-pattern"></div>
 
-    <!-- HEADER -->
-    <header>
-        <div class="header-content">
-            <div class="logo">
-                <h1>Soccer Kits <span>🔌 SA</span></h1>
-            </div>
-            <nav>
-                <ul>
-                    <li><a href="#home" class="active">Home</a></li>
-                    <li><a href="#products">Jerseys</a></li>
-                    <li><a href="#teams">Teams</a></li>
-                    <li><a href="#about">About</a></li>
-                </ul>
-            </nav>
-            <button id="cartBtn"><i class="fas fa-shopping-cart"></i> <span id="cartCount">0</span></button>
+<!-- HEADER -->
+<header>
+    <div class="container header-content">
+        <div class="logo">
+            <div class="logo-icon"><i class="fas fa-futbol"></i></div>
+            <div class="logo-text"><h1>Soccer kits <span>🔌 SA</span></h1></div>
         </div>
-    </header>
+        <nav>
+            <ul>
+                <li><a href="#home" class="active">Home</a></li>
+                <li><a href="#products">Jerseys</a></li>
+                <li><a href="#teams">Teams</a></li>
+                <li><a href="#about">About</a></li>
+                <li>
+                    <button id="cartBtn" class="cart-button">
+                        <i class="fas fa-shopping-cart"></i> <span id="cartCount">0</span>
+                    </button>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</header>
 
-    <!-- CART PANEL -->
-    <div id="cartPanel" class="cart-panel">
-        <button id="closeCart" class="close-cart">×</button>
-        <h3>Your Cart</h3>
-        <div id="cartItems"></div>
-        <div class="cart-totals">
-            <p>Subtotal: <span id="subtotal">R 0.00</span></p>
-            <p>Tax: <span id="tax">R 0.00</span></p>
-            <p>Total: <span id="total">R 0.00</span></p>
-            <button id="checkoutBtn">Checkout</button>
+<!-- CART PANEL -->
+<div id="cartPanel" class="cart-panel">
+    <button id="closeCart" class="close-cart">&times;</button>
+    <h3>Your Cart</h3>
+    <div id="cartItems"></div>
+    <div class="cart-totals">
+        <p>Subtotal: <span id="subtotal">R 0.00</span></p>
+        <p>Tax: <span id="tax">R 0.00</span></p>
+        <p>Total: <span id="total">R 0.00</span></p>
+        <button id="checkoutBtn">Checkout</button>
+    </div>
+</div>
+
+<!-- CART NOTIFICATION -->
+<div id="cartNotification" class="cart-notification"></div>
+
+<!-- HERO -->
+<section class="hero" id="home">
+    <div class="container hero-content">
+        <h2>Authentic Soccer Jerseys</h2>
+        <p>Official & replica kits delivered across South Africa</p>
+        <div class="hero-buttons">
+            <a href="#products" class="btn btn-primary"><i class="fas fa-shopping-bag"></i> Shop Now</a>
+            <a href="#teams" class="btn btn-secondary"><i class="fas fa-search"></i> Browse Teams</a>
         </div>
     </div>
+</section>
 
-    <!-- CART NOTIFICATION -->
-    <div id="cartNotification" class="cart-notification"></div>
-
-    <!-- HERO -->
-    <section class="hero" id="home">
-        <div class="container hero-content">
-            <h2>Authentic Soccer Jerseys</h2>
-            <p>Official & replica kits delivered across South Africa</p>
+<!-- TEAMS -->
+<section class="teams-section" id="teams">
+    <div class="container">
+        <div class="section-title"><h2>Teams</h2></div>
+        <div class="teams-grid">
+            <!-- Team logos with data-team attributes -->
+            <div class="team-card" data-team="RM"><img src="RM-LOGO.png" alt="Real Madrid"></div>
+            <div class="team-card" data-team="PSG"><img src="PSG-LOGO.png" alt="PSG"></div>
+            <div class="team-card" data-team="LFC"><img src="LFC-LOGO.png" alt="Liverpool"></div>
+            <div class="team-card" data-team="FCB"><img src="FCB-LOGO.png" alt="Barcelona"></div>
+            <div class="team-card" data-team="SD"><img src="SD-LOGO.jpg" alt="Sundowns"></div>
+            <div class="team-card" data-team="OP"><img src="OP-LOGO.jpg" alt="Orlando Pirates"></div>
+            <div class="team-card" data-team="KC"><img src="KC-LOGO.jpg" alt="Kaizer Chiefs"></div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- TEAM LOGOS -->
-    <section class="teams-section" id="teams">
-        <div class="container">
-            <h2>Featured Teams</h2>
-            <div class="teams-grid" id="teamsGrid">
-                <div class="team-card" data-team="RM">
-                    <img src="RM-LOGO.png" alt="Real Madrid">
-                </div>
-                <div class="team-card" data-team="PSG">
-                    <img src="PSG-LOGO.png" alt="PSG">
-                </div>
-                <div class="team-card" data-team="LFC">
-                    <img src="LFC-LOGO.png" alt="Liverpool">
-                </div>
-                <div class="team-card" data-team="FCB">
-                    <img src="FCB-LOGO.png" alt="Barcelona">
-                </div>
-                <div class="team-card" data-team="KC">
-                    <img src="KC-LOGO.jpg" alt="Kaizer Chiefs">
-                </div>
-                <div class="team-card" data-team="SD">
-                    <img src="SD-LOGO.jpg" alt="Sundowns">
-                </div>
-                <div class="team-card" data-team="OP">
-                    <img src="OP-LOGO.jpg" alt="Orlando Pirates">
-                </div>
-                <div class="team-card" data-team="MC">
-                    <img src="MC-LOGO.jpg" alt="Man City">
-                </div>
-            </div>
-        </div>
-    </section>
+<!-- PRODUCTS -->
+<section class="products-section" id="products">
+    <div class="container">
+        <div class="section-title"><h2>Jerseys</h2></div>
+        <div class="products-grid" id="productsGrid"></div>
+    </div>
+</section>
 
-    <!-- PRODUCTS GRID -->
-    <section class="products-section" id="products">
-        <div class="container">
-            <h2>Premium Soccer Kits</h2>
-            <div class="products-grid" id="productsGrid">
-                <!-- Product cards rendered by JS -->
-            </div>
-        </div>
-    </section>
+<!-- FOOTER -->
+<footer id="about">
+    <div class="container"><p>&copy; 2025 Soccer kits 🔌 SA</p></div>
+</footer>
 
-    <!-- FOOTER -->
-    <footer id="about">
-        <div class="container">
-            <p>&copy; 2025 Soccer Kits 🔌 SA</p>
-        </div>
-    </footer>
-
-    <!-- SCRIPT -->
-    <script src="script.js"></script>
+<!-- SCRIPT -->
+<script src="script.js"></script>
 </body>
-        </html>
+</html>
